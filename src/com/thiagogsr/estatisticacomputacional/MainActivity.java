@@ -75,10 +75,10 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Bundle bundle = new Bundle();
 				bundle.putSerializable("numbers", numbers);
-				Intent intent = new Intent(getApplicationContext(), CalcActivity.class);
+				Intent intent = new Intent(v.getContext(), CalcActivity.class);
 				intent.putExtras(bundle);
-				getApplicationContext().startActivity(intent);
-				((MainActivity) getApplicationContext()).finish();
+				v.getContext().startActivity(intent);
+				((MainActivity) v.getContext()).finish();
 			}
 		});
 	}
