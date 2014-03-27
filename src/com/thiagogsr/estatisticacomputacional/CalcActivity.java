@@ -73,22 +73,21 @@ public class CalcActivity extends Activity {
 	}
 
 	private String getOrderedNumbers() {
-		int i = 0;
 		ArrayList<Float> unsortNumbers = numbers;
 		Collections.sort(unsortNumbers);
 		int size = unsortNumbers.size();
+		int i = 0;
 		
 		String result = "[";
 		for (Float n: unsortNumbers) {
-			result = n.toString();
+			result += n.toString();
+			i++;
 			
 			if (i < size) {
-				result = ", ";
+				result += ", ";
 			}
-			
-			i++;
 		}
-		result = "]";
+		result += "]";
 		
 		return result;
 	}
