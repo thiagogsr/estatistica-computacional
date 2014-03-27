@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +22,7 @@ public class MainActivity extends Activity {
 	
 	private ArrayList<Float> numbers;
 	private Button btAdd;
+	private Button btRun;
 	private EditText number;
 	private ListView numbersList;
 	private TextView numbersListCount;
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		numbers = new ArrayList<Float>();
 		btAdd = (Button) findViewById(R.id.btAdd);
+		btRun = (Button) findViewById(R.id.btRun);
 		number = (EditText) findViewById(R.id.number);
 		numbersList = (ListView) findViewById(R.id.numbersList);
 		numbersListCount = (TextView) findViewById(R.id.numbersListCount);
@@ -66,6 +69,18 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+		
+		btRun.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("numbers", numbers);
+				Intent intent = new Intent(getApplicationContext(), CalcActivity.class);
+				intent.putExtras(bundle);
+				getApplicationContext().startActivity(intent);
+				((MainActivity) getApplicationContext()).finish();
+			}
+		});
 	}
 
 	@Override
@@ -94,9 +109,11 @@ public class MainActivity extends Activity {
 			numbersListInfo.setVisibility(View.VISIBLE);
 			numbersListCount.setVisibility(View.VISIBLE);
 			numbersListCount.setText(res.getQuantityString(R.plurals.numbersOfItens, count, count));
+			btRun.setEnabled(true);
 		} else {
 			numbersListInfo.setVisibility(View.INVISIBLE);
 			numbersListCount.setVisibility(View.INVISIBLE);
+			btRun.setEnabled(false);
 		}
 		ArrayAdapter<Float> arrayAdapter = new ArrayAdapter<Float>(MainActivity.this, android.R.layout.simple_list_item_1, numbers);
 		numbersList.setAdapter(arrayAdapter);

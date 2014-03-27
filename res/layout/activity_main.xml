@@ -31,6 +31,13 @@
 	    android:layout_height="wrap_content"
 	    android:text="@string/add" />
 	
+	<Button
+	    android:id="@+id/btRun"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/run"
+	    android:enabled="false" />
+	
 	<TextView
 	    android:id="@+id/numbersListInfo"
 	    android:layout_width="match_parent"
