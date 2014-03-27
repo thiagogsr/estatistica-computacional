@@ -1,0 +1,255 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CalcActivity">
+    
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+    	
+		    <TextView
+		        android:id="@+id/orderedNumbersLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/orderedNumbers"
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/orderedNumbers"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/positionMeasurementsLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/positionMeasurements"
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/maximumNumberLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/maximumNumber"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/maximumNumber"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/minimumNumberLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/minimumNumber"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/minimumNumber"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/modeLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/mode"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/mode"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/averageLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/average"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/average"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/medianLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/median"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/median"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/firstQuartileLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/firstQuartile"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/firstQuartile"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/thirdQuartileLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/thirdQuartile"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/thirdQuartile"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/upperLimitLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/upperLimit"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/upperLimit"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/lowerLimitLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/lowerLimit"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/lowerLimit"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/dispersionMeasurementsLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/dispersionMeasurements"
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/amplitudeLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/amplitude"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/amplitude"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/varianceLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/variance"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/variance"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/standardDeviationLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/standardDeviation"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/standardDeviation"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/coefficientOfVariationLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/coefficientOfVariation"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/coefficientOfVariation"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue"
+		        android:layout_marginBottom="10dp" />
+		    
+		    <TextView
+		        android:id="@+id/interquartileRangeLabel"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/interquartileRange"
+		        android:textStyle="bold" />
+		    
+		    <TextView
+		        android:id="@+id/interquartileRange"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/defaultValue" />
+		
+		    <Button
+			    android:id="@+id/btBack"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:text="@string/back" />
+	
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>
