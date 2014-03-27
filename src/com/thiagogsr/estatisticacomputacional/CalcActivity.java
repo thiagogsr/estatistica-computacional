@@ -43,6 +43,7 @@ public class CalcActivity extends Activity {
   private Double vDeviation;
   private Float vCoefficient;
   private Float vInter;
+  private int size;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class CalcActivity extends Activity {
       numbers = (ArrayList<Float>) bum.getSerializable("numbers");
       Collections.sort(numbers);
       
+      size = numbers.size();
       vMax = getMaximumNumber();
       vMin = getMinimumNumber();
       vAverage = getAverage();
@@ -101,22 +103,22 @@ public class CalcActivity extends Activity {
     }
     
     btBack.setOnClickListener(new Button.OnClickListener() {
-	  @Override
-	  public void onClick(View v) {
-	    finish();
+      @Override
+      public void onClick(View v) {
+        finish();
       }
-	});
+    });
   }
   
   private Float getValue(Float position) {
-	Float value;
-	if ((numbers.size() % 2) == 0) {
-		value = (numbers.get((int) Math.ceil(position - 1)) + numbers.get((int) Math.floor(position - 1)))/2;
-	} else {
-		value = numbers.get((int) (position - 1));
-	}
-	
-	return value;
+    Float value;
+    if ((size % 2) == 0) {
+      value = (numbers.get((int) Math.ceil(position - 1)) + numbers.get((int) Math.floor(position - 1)))/2;
+    } else {
+      value = numbers.get((int) (position - 1));
+    }
+  
+    return value;
   }
 
   private String getOrderedNumbers(ArrayList<Float> numbers) {
@@ -174,7 +176,11 @@ public class CalcActivity extends Activity {
     int i = 0;
 
     for (Float f: numbers) {
-      if (!f.equals(old) || i == (numbers.size() - 1)) {
+      Boolean isLast = i == (size - 1);
+      if (!f.equals(old) || isLast) {
+        if (isLast && f.equals(old)) {
+  		  c++;
+  	    }
         if (c > 0) {
           ArrayList<Float> t;
           if (map.containsKey(c)) {
@@ -194,53 +200,53 @@ public class CalcActivity extends Activity {
     
     int max = 0;
     for (Integer m: map.keySet()) {
-    	if (m > max) {
-    		max = m;
-    	}
+      if (m > max) {
+        max = m;
+      }
     }
     
     if (max > 1) {
-    	ArrayList<Float> result = map.get(max);
-    	mode = getOrderedNumbers(result);
-    	if (result.size() == 2) {
-    		modeType = "bimodal";
-    	} else {
-    		modeType = "multimodal";
-    	}
+      ArrayList<Float> result = map.get(max);
+      mode = getOrderedNumbers(result);
+      if (result.size() == 2) {
+        modeType = " - bimodal";
+      } else if (result.size() > 2) {
+        modeType = " - multimodal";
+      }
     }
 
-    return mode == "" ? "Amodal" : (mode + " - " + modeType);
+    return mode == "" ? "Amodal" : (mode + modeType);
   }
   
   private Float getAverage() {
     Float average = 0f;
     for (Float f: numbers) {
-	  average += f;
+      average += f;
     }
-    average /= numbers.size();
+    average /= size;
     return average;
   }
 
   private Float getMedian() {
-	Float position = (numbers.size() + 1)/2f;
+  Float position = (size + 1)/2f;
     return getValue(position);
   }
 
   private Float getFirstQuartile() {
-    return getValue(0.25f * (numbers.size() + 1));
+    return size > 2 ? getValue(0.25f * (size + 1)) : 0f;
   }
 
   private Float getThirdQuartile() {
-	return getValue(0.75f * (numbers.size() + 1));
+  return size > 2 ? getValue(0.75f * (size + 1)) : 0f;
   }
 
   private String getUpperLimit() {
-	Float result = (float) (Q3 + (1.5*(vInter)));
+  Float result = (float) (Q3 + (1.5*(vInter)));
     return result.toString();
   }
 
   private String getLowerLimit() {
-	Float result = (float) (Q1 - (1.5*(vInter)));
+  Float result = (float) (Q1 - (1.5*(vInter)));
     return result.toString();
   }
 
@@ -249,14 +255,14 @@ public class CalcActivity extends Activity {
   }
 
   private Float getVariance() {
-	Float sum = 0f;
-	
-	for (Float f: numbers) {
-		Float number = f - vAverage;
-		sum += number*number;
-	}
-	
-	Float result = sum/(numbers.size() - 1);
+  Float sum = 0f;
+  
+  for (Float f: numbers) {
+    Float number = f - vAverage;
+    sum += number*number;
+  }
+  
+  Float result = sum/(size - 1);
     return result;
   }
 
