@@ -78,7 +78,6 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(v.getContext(), CalcActivity.class);
 				intent.putExtras(bundle);
 				v.getContext().startActivity(intent);
-				((MainActivity) v.getContext()).finish();
 			}
 		});
 	}

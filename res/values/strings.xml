@@ -9,8 +9,9 @@
     <string name="orderedNumbers">Números ordenados</string>
     <string name="positionMeasurements">Medidas de posição</string>
     <string name="dispersionMeasurements">Medidas de dispersão</string>
-    <string name="maximumNumber">Número máximo</string>
-    <string name="minimumNumber">Número mínimo</string>
+    <string name="maximumNumber">Valor máximo</string>
+    <string name="minimumNumber">Valor mínimo</string>
+    <string name="average">Média</string>
     <string name="mode">Moda</string>
     <string name="median">Mediana</string>
     <string name="firstQuartile">Primeiro quartil</string>
