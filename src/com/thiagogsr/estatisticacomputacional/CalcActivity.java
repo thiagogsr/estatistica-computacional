@@ -112,10 +112,10 @@ public class CalcActivity extends Activity {
   
   private Float getValue(Float position) {
     Float value;
-    if ((size % 2) == 0) {
-      value = (numbers.get((int) Math.ceil(position - 1)) + numbers.get((int) Math.floor(position - 1)))/2;
+    if (position == Math.ceil(position)) {
+      value = (float) numbers.get((int) (position - 1));
     } else {
-      value = numbers.get((int) (position - 1));
+      value = ((float) numbers.get((int) Math.ceil(position - 1)) + (float) numbers.get((int) Math.floor(position - 1)))/2f;
     }
   
     return value;
@@ -228,41 +228,41 @@ public class CalcActivity extends Activity {
   }
 
   private Float getMedian() {
-  Float position = (size + 1)/2f;
+    Float position = (size + 1)/2f;
     return getValue(position);
   }
 
   private Float getFirstQuartile() {
-    return size > 2 ? getValue(0.25f * (size + 1)) : 0f;
+    return size > 2 ? getValue(0.25f * ((float) (size + 1))) : 0f;
   }
 
   private Float getThirdQuartile() {
-  return size > 2 ? getValue(0.75f * (size + 1)) : 0f;
+    return size > 2 ? getValue(0.75f * ((float) (size + 1))) : 0f;
   }
 
   private String getUpperLimit() {
-  Float result = (float) (Q3 + (1.5*(vInter)));
+	Float result = Q3 + (1.5f * (vInter));
     return result.toString();
   }
 
   private String getLowerLimit() {
-  Float result = (float) (Q1 - (1.5*(vInter)));
+    Float result = Q1 - (1.5f * (vInter));
     return result.toString();
   }
 
   private Float getAmplitude() {
-    return vMax-vMin;
+    return vMax - vMin;
   }
 
   private Float getVariance() {
-  Float sum = 0f;
+    Float sum = 0f;
   
-  for (Float f: numbers) {
-    Float number = f - vAverage;
-    sum += number*number;
-  }
+    for (Float f: numbers) {
+      Float number = f - vAverage;
+      sum += number * number;
+    }
   
-  Float result = sum/(size - 1);
+    Float result = sum/(size - 1);
     return result;
   }
 
@@ -275,7 +275,7 @@ public class CalcActivity extends Activity {
   }
 
   private Float getInterquartileRange() {
-    return Q3-Q1;
+    return Q3 - Q1;
   }
 
   @Override
