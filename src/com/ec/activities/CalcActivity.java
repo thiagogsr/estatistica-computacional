@@ -44,9 +44,8 @@ public class CalcActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Resources res = getResources();
-				Util.makeDialog(CalcActivity.this, res.getString(R.string.titleDialogRequired), res.getString(R.string.numberRequired));
 				if (number.getText().toString().isEmpty()) {
-					Util.makeDialog(v.getContext(), res.getString(R.string.titleDialogRequired), res.getString(R.string.numberRequired));
+					Util.makeDialog(CalcActivity.this, res.getString(R.string.titleDialogRequired), res.getString(R.string.numberRequired));
 				} else {
 					numbers.add(Float.parseFloat(number.getText().toString()));
 					number.setText(null);

@@ -30,6 +30,7 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
+        public static final int ProbabilityResultView=0x7f09002f;
         public static final int amplitude=0x7f09001e;
         public static final int amplitudeLabel=0x7f09001d;
         public static final int average=0x7f090011;
@@ -44,6 +45,7 @@ public final class R {
         public static final int drawer_layout=0x7f090028;
         public static final int firstQuartile=0x7f090015;
         public static final int firstQuartileLabel=0x7f090014;
+        public static final int image=0x7f090030;
         public static final int interquartileRange=0x7f090026;
         public static final int interquartileRangeLabel=0x7f090025;
         public static final int left_drawer=0x7f09002a;
@@ -71,6 +73,7 @@ public final class R {
         public static final int standardDeviationLabel=0x7f090021;
         public static final int success=0x7f09002e;
         public static final int successLabel=0x7f09002d;
+        public static final int text=0x7f090031;
         public static final int thirdQuartile=0x7f090017;
         public static final int thirdQuartileLabel=0x7f090016;
         public static final int upperLimit=0x7f090019;
@@ -86,6 +89,7 @@ public final class R {
         public static final int activity_probability=0x7f030004;
         public static final int activity_probability_result=0x7f030005;
         public static final int drawer_list_item=0x7f030006;
+        public static final int probability_item=0x7f030007;
     }
     public static final class plurals {
         public static final int numbersOfItens=0x7f060000;
@@ -103,9 +107,10 @@ public final class R {
         public static final int coefficientOfVariation=0x7f050018;
         public static final int defaultValue=0x7f050027;
         public static final int dispersionMeasurements=0x7f05000b;
-        public static final int drawer_close=0x7f05002c;
-        public static final int drawer_open=0x7f05002b;
+        public static final int drawer_close=0x7f05002d;
+        public static final int drawer_open=0x7f05002c;
         public static final int firstQuartile=0x7f050011;
+        public static final int formule=0x7f05002b;
         public static final int info=0x7f050023;
         public static final int infoDeletedAllMsg=0x7f050025;
         public static final int infoDeletedMsg=0x7f050024;

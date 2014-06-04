@@ -5,11 +5,9 @@ public class Probability {
 	private Float success;
 	private Float fail;
 	private Integer sample;
-	// url: http://latex.codecogs.com/gif.latex?%5Cbinom%7B TOP %7D%7B BOTTOM %7D
-	// latex: P\left ( x=1 \right ) = \binom{10}{1} * 0.7^1*0.3^9 = \frac{10!}{1!\left ( 10-1 \right )!} * 0.7^1*0.3^9
 	
 	public Probability(Float success, Integer sample) {
-		this.success = success;
+		this.success = success/100f;
 		this.fail = 1 - this.success;
 		this.sample = sample;
 	}

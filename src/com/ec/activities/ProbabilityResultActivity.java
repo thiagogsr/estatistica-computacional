@@ -1,10 +1,13 @@
 package com.ec.activities;
 
 import android.app.Activity;
-import android.graphics.Typeface;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.ec.R;
@@ -18,33 +21,28 @@ public class ProbabilityResultActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		LinearLayout ll = (LinearLayout) findViewById(R.layout.activity_probability_result);
+		setContentView(R.layout.activity_probability_result);
+		LinearLayout ll = (LinearLayout) findViewById(R.id.ProbabilityResultView);
+		LayoutInflater mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		
 		if(getIntent().getExtras() != null) {
 			Bundle bum = getIntent().getExtras();
 			sample = bum.getInt("sample");
 			success = bum.getFloat("success");
 			
-			LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-			LayoutParams lp2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-			lp2.setMargins(0, 0, 0, 10);
 			Probability probability = new Probability(this.success, this.sample);
 			for (int i = 0; i <= sample; i++) {
-				TextView tv = new TextView(this);
-				tv.setLayoutParams(lp);
-				tv.setText(probability.formule(i));
-				tv.setTextAppearance(this, android.R.attr.textAppearanceMedium);
-				tv.setTypeface(null, Typeface.BOLD);
-				ll.addView(tv);
-				
-				TextView tv2 = new TextView(this);
-				tv2.setLayoutParams(lp2);
-				tv2.setText(probability.run(i).toString());
-				ll.addView(tv2);
+				String params = Uri.encode(probability.formule(i));
+				String url = "http://latex.codecogs.com/gif.latex?" + params;
+
+//				View inflatedView = mInflater.inflate(R.layout.probability_item, null);
+//                ImageView image = (ImageView) inflatedView.findViewById(R.id.image);
+//                TextView result = (TextView) inflatedView.findViewById(R.id.text);
+//                image.setImageURI(Uri.parse(url));
+//                result.setText(probability.run(i).toString());
+//                ll.addView(inflatedView);
 			}
 		}
-		
-		setContentView(ll);
 	}
 
 }

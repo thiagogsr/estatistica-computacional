@@ -44,6 +44,7 @@
     <string name="choose_option">Selecione uma opção abaixo</string>
     <string name="sample">Amostra</string>
     <string name="success">Probabilidade de sucesso</string>
+    <string name="formule">Fórmula</string>
 
     <plurals name="numbersOfItens">
         <item quantity="one">%d número</item>

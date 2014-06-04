@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -17,10 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.ec.R;
+import com.ec.common.Util;
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
@@ -68,7 +72,7 @@ public class MainActivity extends Activity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+        	selectItem(0);
         }
     }
     
@@ -93,7 +97,7 @@ public class MainActivity extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
+        	selectItem(position);
         }
     }
     
@@ -131,7 +135,7 @@ public class MainActivity extends Activity {
 
     public static class FeatureFragment extends Fragment {
         public static final String ARG_FEATURE_NUMBER = "feature_number";
-
+        
         public FeatureFragment() {}
 
         @Override
@@ -140,6 +144,9 @@ public class MainActivity extends Activity {
             String feature = getResources().getStringArray(R.array.features_array)[i];
             String activity = getResources().getStringArray(R.array.features_activities_array)[i];
             getActivity().setTitle(feature);
+
+//        	Intent intent = new Intent(getApplicationContext(), Class.forName(activity));
+//    		getApplicationContext().startActivity(intent);
             
             int activityId = getResources().getIdentifier(activity, "layout", getActivity().getPackageName());
             View rootView = inflater.inflate(activityId, container, false);
@@ -147,5 +154,5 @@ public class MainActivity extends Activity {
             return rootView;
         }
     }
-    
+
 }
