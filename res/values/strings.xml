@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">Estatística Computacional</string>
-    <string name="title_activity_calc">Resultados</string>
+    <string name="title_activity_calc">Calculadora</string>
+    <string name="title_activity_calc_results">Resultado</string>
+    <string name="title_activity_probability">Probabilidade</string>
+    <string name="title_activity_probability_result">Resultado</string>
+    <string name="title_activity_head_or_tail">Cara ou coroa</string>
     <string name="action_settings">Settings</string>
     <string name="number">Número</string>
     <string name="numbers">Números</string>
@@ -30,15 +34,34 @@
     <string name="clear">Limpar Lista</string>
     <string name="titleDialogRequired">Ops!</string>
     <string name="numberRequired">Preencha um número</string>
+    <string name="sampleRequired">Informe o tamanho da amostra</string>
+    <string name="successRequired">Informe a probabilidade de sucesso</string>
     <string name="info">Informação</string>
     <string name="infoDeletedMsg">O número %s foi removido</string>
     <string name="infoDeletedAllMsg">Todos os números foram removidos</string>
     <string name="numbersListInfo">Toque um número para removê-lo</string>
     <string name="defaultValue">0.0</string>
+    <string name="choose_option">Selecione uma opção abaixo</string>
+    <string name="sample">Amostra</string>
+    <string name="success">Probabilidade de sucesso</string>
 
     <plurals name="numbersOfItens">
         <item quantity="one">%d número</item>
         <item quantity="other">%d números</item>
     </plurals>
 
+    <string-array name="features_array">
+        <item>Calculadora</item>
+        <item>Cara ou Coroa</item>
+        <item>Probabilidade</item>
+    </string-array>
+    
+    <string-array name="features_activities_array">
+        <item>activity_calc</item>
+        <item>activity_head_or_tail</item>
+        <item>activity_probability</item>
+    </string-array>
+
+    <string name="drawer_open">Abrir menu</string>
+    <string name="drawer_close">Fechar menu</string>
 </resources>
